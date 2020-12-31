@@ -1,0 +1,35 @@
+.contact {
+  padding: 5rem 10rem;
+  color: #353535;
+  min-height: 90vh;
+  .title {
+    margin-bottom: 4rem;
+    color: black;
+  }
+  .hide {
+    overflow: hidden;
+  }
+  .social {
+    display: flex;
+    align-items: center;
+    h2 {
+      margin: 2rem;
+    }
+  }
+  .circle {
+    border-radius: 30%;
+    width: 3rem;
+    height: 3rem;
+    background: #353535;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .contact {
+    padding: 2rem;
+    font-size: 1rem;
+    .title {
+      margin-top: 5rem;
+    }
+  }
+}

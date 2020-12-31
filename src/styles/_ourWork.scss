@@ -1,0 +1,59 @@
+.work {
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 5rem 10rem;
+  h2 {
+    padding: 1rem 0rem;
+  }
+}
+
+.movie {
+  padding-bottom: 10rem;
+  .line {
+    height: 0.5rem;
+    background: #23d997;
+    margin-bottom: 3rem;
+  }
+  .hide {
+    overflow: hidden;
+  }
+  img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+  }
+}
+
+%baseFrame {
+  position: fixed;
+  left: 0;
+  top: 10%;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+}
+.frame1 {
+  @extend %baseFrame;
+  background: #fffebf;
+}
+
+.frame2 {
+  @extend %baseFrame;
+  background: #ff8efb;
+}
+
+.frame3 {
+  @extend %baseFrame;
+  background: #8ed2ff;
+}
+
+.frame4 {
+  @extend %baseFrame;
+  background: #8effa0;
+}
+
+@media screen and (max-width: 1300px) {
+  .work {
+    padding: 2rem;
+  }
+}
