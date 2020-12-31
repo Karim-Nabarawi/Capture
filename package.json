@@ -1,4 +1,5 @@
 {
+  "homepage": "https://karim-nabarawi.github.io/capture-app",
   "name": "capture-app",
   "version": "0.1.0",
   "private": true,
@@ -40,6 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "homepage": "https://karim-nabarawi.github.io/capture-app/"
+  }
 }
