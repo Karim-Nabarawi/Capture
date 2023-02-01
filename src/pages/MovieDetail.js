@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { MovieState } from "../movieState";
 
 import ScrollTop from "../components/ScrollTop";
@@ -9,8 +9,8 @@ import { motion } from "framer-motion";
 import { pageAnimation } from "../animation";
 
 const MovieDetail = ({}) => {
-  const history = useHistory();
-  const url = history.location.pathname;
+  const { pathname } = useLocation();
+  const url = pathname;
 
   //State
   const [movies, setMovies] = useState(MovieState);

@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 //Animations
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { pageAnimation, fade, photoAnim, lineAnim, sliderAnim, sliderContainerAnim } from "../animation";
-import { useScroll } from "../components/useScroll";
 
 import ScrollTop from "../components/ScrollTop";
 
@@ -12,6 +11,7 @@ import ScrollTop from "../components/ScrollTop";
 import athlete from "../img/athlete-small.png";
 import theracer from "../img/theracer-small.png";
 import goodtimes from "../img/goodtimes-small.png";
+import { useInView } from "react-intersection-observer";
 
 const OurWork = () => {
   return (
@@ -38,7 +38,11 @@ const OurWork = () => {
 };
 
 const MovieAnim = ({ title, imgSrc, goTo }) => {
-  const [element, controls] = useScroll();
+  const controls = useAnimation();
+  const [element, view] = useInView({ threshold: 0.45 });
+  useEffect(() => {
+    view ? controls.start("show") : controls.start("hidden");
+  }, [view, controls]);
   return (
     <motion.div variants={fade} animate={controls} initial="hidden" ref={element}>
       <div className="movie">
