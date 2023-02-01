@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 //Import icons
 import clock from "../img/clock.svg";
@@ -7,15 +7,17 @@ import money from "../img/money.svg";
 import teamwork from "../img/teamwork.svg";
 import home2 from "../img/home2.png";
 
-// Utilities
-import { useScroll } from "./useScroll";
-
 // Animation
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { scrollRevelAnim } from "../animation";
+import { useInView } from "react-intersection-observer";
 
 const ServicesSection = () => {
-  const [element, controls] = useScroll();
+  const controls = useAnimation();
+  const [element, view] = useInView({ threshold: 0.45 });
+  useEffect(() => {
+    view ? controls.start("show") : controls.start("hidden");
+  }, [view, controls]);
   return (
     <motion.div variants={scrollRevelAnim} animate={controls} initial="hidden" ref={element} className="services">
       <div className="description">
